@@ -18,6 +18,10 @@ public class Product implements Serializable {
     @Column(name = "DESCRIPTION")
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "MEMBER_ID", referencedColumnName = "MEMBER_ID")
+    private Member member;
+
     public Integer getProductId() {
         return productId;
     }
@@ -40,5 +44,13 @@ public class Product implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
     }
 }

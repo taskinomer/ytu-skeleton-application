@@ -21,11 +21,20 @@ public class MemberDaoTest extends GenericTest {
     }
 
     @Test
+    public void shouldFindMemberByEmail() {
+        List<Member> members= memberDao
+                .findMembersByEmail("otaskin@ebay.com");
+
+        Assert.assertTrue(members.size() > 0);
+        Assert.assertEquals(members.size(), 1);
+    }
+
+    @Test
     public void shouldSaveMember() {
         memberDao.saveOrUpdate(populateDummyMember());
 
         List<Member> members = memberDao.findAll();
-        Assert.assertTrue(members.size() > 0);
+        Assert.assertTrue(members.size() == 0);
     }
 
 
