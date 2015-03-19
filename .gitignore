@@ -39,7 +39,7 @@ auth-config.xml
 .clover/
 
 # Compression generated files
-*.zip
+#*.zip
 *.gz
 *.tar
 *.rar
