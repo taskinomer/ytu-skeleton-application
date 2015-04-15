@@ -22,8 +22,10 @@ public class MemberDaoTest extends GenericTest {
 
     @Test
     public void shouldFindMemberByEmail() {
+        String email = "email";
+        memberDao.saveOrUpdate(populateDummyMemberByEmail(email));
         List<Member> members= memberDao
-                .findMembersByEmail("otaskin@ebay.com");
+                .findMembersByEmail(email);
 
         Assert.assertTrue(members.size() > 0);
         Assert.assertEquals(members.size(), 1);
@@ -31,18 +33,19 @@ public class MemberDaoTest extends GenericTest {
 
     @Test
     public void shouldSaveMember() {
-        memberDao.saveOrUpdate(populateDummyMember());
+        memberDao.saveOrUpdate(populateDummyMemberByEmail(""));
 
         List<Member> members = memberDao.findAll();
-        Assert.assertTrue(members.size() == 0);
+        Assert.assertTrue(members.size() > 0);
     }
 
 
-    private Member populateDummyMember() {
+    private Member populateDummyMemberByEmail(String email) {
         Member member = new Member();
 
         member.setName("dummy");
         member.setSurname("user");
+        member.setEmail(email);
 
         return member;
     }
