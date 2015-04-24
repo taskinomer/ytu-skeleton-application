@@ -5,10 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import tr.edu.yildiz.dao.BaseDao;
 
+import javax.transaction.Transactional;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 @Repository
+@Transactional
 public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 
     @Autowired
