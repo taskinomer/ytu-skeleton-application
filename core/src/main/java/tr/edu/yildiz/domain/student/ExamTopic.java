@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Table(name = "exam_topics")
 public class ExamTopic {
 
-    @Id //  PRIMARY_KEY
+    @Id
     @Column(name = "TOPIC_ID")
     private Integer topicId;
 
