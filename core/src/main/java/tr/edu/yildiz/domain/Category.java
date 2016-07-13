@@ -14,6 +14,9 @@ public class Category {
     @Column(name = "CATEGORY_NAME")
     private String categoryName;
 
+    // TODO
+//    private Integer sortNum;
+
     public Integer getCategoryId() {
         return categoryId;
     }

@@ -17,7 +17,7 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @RequestMapping("/all")
+    @RequestMapping()
     @ResponseBody
     public List<CategoryDto> getAll() {
         return categoryService.getAllCategories();
