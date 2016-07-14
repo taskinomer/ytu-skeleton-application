@@ -9,10 +9,17 @@ import tr.edu.yildiz.test.GenericTest;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 public class BrandDaoIntegrationTest extends GenericTest {
 
     @Autowired
     private BrandDao brandDao;
+
+
+    @Test
+    public void test() {
+    }
 
 
     @Test
@@ -23,8 +30,8 @@ public class BrandDaoIntegrationTest extends GenericTest {
 
         List<Brand> brands = brandDao.findAll();
 
-        Assert.assertEquals(brands.size(), 1);
-        Assert.assertEquals(brands.get(0).getBrandName(), brandName);
+        assertEquals(brands.size(), 1);
+        assertEquals(brands.get(0).getBrandName(), brandName);
     }
 
     @Test
@@ -36,7 +43,8 @@ public class BrandDaoIntegrationTest extends GenericTest {
 
         Assert.assertNotNull(savedBrand);
         Assert.assertTrue(savedBrand.getBrandId() > 0);
-        Assert.assertEquals(savedBrand.getBrandName(), brand.getBrandName());
+        assertEquals(savedBrand.getBrandName(), brand.getBrandName());
+
     }
 
     private Brand createBrandWithName(String brandName) {
@@ -63,7 +71,7 @@ public class BrandDaoIntegrationTest extends GenericTest {
 
 
         Brand byId = brandDao.findById(brandWithName.getBrandId());
-        Assert.assertEquals(byId.getBrandName(), newBrandName);
+        assertEquals(byId.getBrandName(), newBrandName);
         // assertion
         // kontrol et omer -> cengiz
     }
@@ -73,8 +81,7 @@ public class BrandDaoIntegrationTest extends GenericTest {
         String brandName = "aaa";
         Brand brand = createBrandWithName(brandName);
 
-        Brand saveBrand = brandDao.save(brand);
-        Integer id = saveBrand.getBrandId();
+        Integer id = brand.getBrandId();
         brandDao.deleteById(id);
 
         Brand foundBrand = brandDao.findById(id);

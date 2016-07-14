@@ -35,24 +35,9 @@ public class BrandControler {
         return brandService.saveBrand(brandSaveRequest);
     }
 
-    @RequestMapping(value = "/{d}/{a}",method = RequestMethod.PUT)
-    @ResponseBody
-    public void updateBrand(@PathVariable(value = "d") Integer id,
-                            @PathVariable(value = "a") Integer yeni,
-                            BrandSaveRequest brandSaveRequest,
-                            @RequestBody BrandUpdateRequest brandUpdateRequest) {
+    @RequestMapping(method = RequestMethod.PUT)
+    public void updateBrand(@RequestBody BrandUpdateRequest brandUpdateRequest) {
         brandService.updateBrand(brandUpdateRequest);
-    }
-
-    @RequestMapping(value = "/{d}/{a}",method = RequestMethod.PUT)
-    public String updateBrand(@PathVariable(value = "d") Integer id,
-                            @PathVariable(value = "a") Integer yeni,
-                            BrandSaveRequest brandSaveRequest,
-                              @ModelAttribute Hello hello,
-                            @RequestBody BrandUpdateRequest brandUpdateRequest) {
-        brandService.updateBrand(brandUpdateRequest);
-        hello.setTitle("sdfs");
-        return "hello";
     }
 
     @RequestMapping(method = RequestMethod.DELETE)
