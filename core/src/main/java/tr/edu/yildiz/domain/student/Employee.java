@@ -18,7 +18,8 @@ public class Employee {
     @Column (name = "EMPLOYEE_NAME")
     private String employeeName;
 
-    @Column (name = "EMPLOYEE_EMAİL")
+//    @OneToOne
+    @Column(name = "EMPLOYEE_EMAIL")
     private String employeeEmail;
 
     public Integer getEmployeeID() {
