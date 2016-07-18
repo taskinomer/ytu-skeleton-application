@@ -1,7 +1,6 @@
 package tr.edu.yildiz.dao.impl;
 
 
-import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import tr.edu.yildiz.dao.EmployeeDao;
@@ -23,12 +22,22 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> implements EmployeeDa
     }
 
     @Override
+    public List<Employee> findByEmail(String email) {
+
+        return getSessionFactory().getCurrentSession()
+                .createQuery("select e from Employee e where e.employeeEmail = :employeeEmail")
+                .setParameter("employeeEmail", email).list();
+
+    }
+
+    @Override
     public void updateEmployeeEmail(String employeeEmail, String newEmail) {
 
         getSessionFactory().getCurrentSession()
-                .createQuery("update Employee e set e.employeeEmail = :employeeEmail where e.employeeEmail = :newEmail")
+                .createQuery("update Employee e set e.employeeEmail = :newEmail where e.employeeEmail = :employeeEmail")
                 .setParameter("employeeEmail", employeeEmail)
-                .setParameter("newEmail", newEmail);
+                .setParameter("newEmail", newEmail)
+                .executeUpdate();
     }
 
     @Override

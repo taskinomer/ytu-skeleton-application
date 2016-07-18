@@ -19,12 +19,7 @@ public class EmployeeDaoImplTest extends GenericTest {
     @Test
     public void findEmployee() throws Exception {
         // data olusturma
-        Employee employee = new Employee();
-        employee.setEmployeeName("asdasd");
-        employee.setEmployeeEmail("sadasd");
-
-        employeeDao.saveOrUpdate(employee);
-
+        Employee employee = getEmployee("");
 
         // testini yazdığın methodu çağır
         List<Employee> employees = employeeDao.findEmployee();
@@ -37,4 +32,38 @@ public class EmployeeDaoImplTest extends GenericTest {
         Assert.assertTrue(employees.get(0).getEmployeeID() > 0);
     }
 
+    private Employee getEmployee(String email) {
+        Employee employee = new Employee();
+        employee.setEmployeeName("default name");
+        employee.setEmployeeEmail(email);
+
+        employeeDao.saveOrUpdate(employee);
+
+        return employee;
+    }
+
+    @Test
+    public void updateEmployeeEmail() throws Exception {
+        String email = "a@b.com";
+        getEmployee(email);
+
+        String newEmail = "b@c.com";
+        employeeDao.updateEmployeeEmail(email, newEmail);
+
+        List<Employee> byEmail = employeeDao.findByEmail(newEmail);
+        Assert.assertTrue(byEmail.size() > 0);
+    }
+
+    @Test
+    public void deleteEmployee() throws Exception {
+        Integer id=1;
+        String email="a@b.com";
+        getEmployee(email);
+
+        employeeDao.deleteEmployee(id);
+
+        List<Employee> findEmployee1 = employeeDao.findEmployee();
+        Assert.assertFalse(findEmployee1.size() > 0);
+
+    }
 }
