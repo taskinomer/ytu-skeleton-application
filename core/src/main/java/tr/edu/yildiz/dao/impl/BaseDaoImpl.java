@@ -19,12 +19,17 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
     private Class<T> type;
 
     protected BaseDaoImpl() {
-        this.type =  (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        this.type = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
     }
 
     @Override
     public List<T> findAll() {
         return sessionFactory.getCurrentSession().createCriteria(type).list();
+    }
+
+    @Override
+    public void save(T t) {
+        sessionFactory.getCurrentSession().save(t);
     }
 
     @Override

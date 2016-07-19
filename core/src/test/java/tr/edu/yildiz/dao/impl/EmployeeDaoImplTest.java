@@ -5,8 +5,10 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import tr.edu.yildiz.dao.EmployeeDao;
 import tr.edu.yildiz.domain.student.Employee;
+import tr.edu.yildiz.domain.student.Salary;
 import tr.edu.yildiz.test.GenericTest;
 
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -32,10 +34,16 @@ public class EmployeeDaoImplTest extends GenericTest {
         Assert.assertTrue(employees.get(0).getEmployeeID() > 0);
     }
 
-    private Employee getEmployee(String email) {
+    protected Employee getEmployee(String email) {
         Employee employee = new Employee();
         employee.setEmployeeName("default name");
         employee.setEmployeeEmail(email);
+
+        Salary salary = new Salary();
+        salary.setPaymentDate(new Date());
+        salary.setAmount(10);
+
+        employee.getSalaries().add(salary);
 
         employeeDao.saveOrUpdate(employee);
 
