@@ -2,14 +2,12 @@ package tr.edu.yildiz.dao.impl;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import tr.edu.yildiz.dao.SalaryDao;
-import tr.edu.yildiz.domain.student.Employee;
-import tr.edu.yildiz.domain.student.Salary;
+import tr.edu.yildiz.dao.impl.business.SalaryDao;
+import tr.edu.yildiz.domain.business.Employee;
+import tr.edu.yildiz.domain.business.Salary;
 import tr.edu.yildiz.test.GenericTest;
 
 import java.util.Date;
-
-import static org.junit.Assert.*;
 
 public class SalaryDaoImplTest extends GenericTest {
 
@@ -31,7 +29,7 @@ public class SalaryDaoImplTest extends GenericTest {
         salary.setAmount(10);
         salary.setPaymentDate(new Date());
         salary.setEmployee(employee);
-        salary.setEmployeeId(employee.getEmployeeID());
+//        salary.setEmployeeId(employee.getEmployeeID());
 
         return salary;
     }

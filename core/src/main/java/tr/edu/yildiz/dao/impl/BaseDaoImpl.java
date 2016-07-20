@@ -4,6 +4,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import tr.edu.yildiz.dao.BaseDao;
+import tr.edu.yildiz.domain.business.Employee;
 
 import javax.transaction.Transactional;
 import java.lang.reflect.ParameterizedType;
@@ -40,4 +41,12 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
+
+    public abstract List<Employee> findEmployee();
+
+    public abstract List<Employee> findByEmail(String email);
+
+    public abstract void updateEmployeeEmail(String employeeEmail, String newEmail);
+
+    public abstract void deleteEmployee(Integer id);
 }

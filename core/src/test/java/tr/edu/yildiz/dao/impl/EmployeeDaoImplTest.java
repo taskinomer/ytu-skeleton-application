@@ -3,15 +3,13 @@ package tr.edu.yildiz.dao.impl;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import tr.edu.yildiz.dao.EmployeeDao;
-import tr.edu.yildiz.domain.student.Employee;
-import tr.edu.yildiz.domain.student.Salary;
+import tr.edu.yildiz.dao.impl.business.EmployeeDao;
+import tr.edu.yildiz.domain.business.Employee;
+import tr.edu.yildiz.domain.business.Salary;
 import tr.edu.yildiz.test.GenericTest;
 
 import java.util.Date;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class EmployeeDaoImplTest extends GenericTest {
 
