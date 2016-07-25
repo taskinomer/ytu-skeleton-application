@@ -41,12 +41,4 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
-
-    public abstract List<Employee> findEmployee();
-
-    public abstract List<Employee> findByEmail(String email);
-
-    public abstract void updateEmployeeEmail(String employeeEmail, String newEmail);
-
-    public abstract void deleteEmployee(Integer id);
 }

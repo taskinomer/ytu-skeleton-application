@@ -1,22 +1,24 @@
 package tr.edu.yildiz.domain.payment.bank;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "CARD_FAMILY")
-public class CardFamily {
+@Table(name = "card_family")
+public class CardFamily implements Serializable {
 
+    private static final long serialVersionUID = 5088890394523768579L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CARD_FAMILY_ID")
     private Integer cardFamilyId;
 
-    @Column(name = "IDATE", nullable = false)
+    @Column(name = "IDATE", nullable = false, columnDefinition = "TIMESTAMP")
     private LocalDateTime insertDate;
 
-    @Column(name = "UDATE")
+    @Column(name = "UDATE", columnDefinition = "TIMESTAMP")
     private LocalDateTime updateDate;
 
     @Column(name = "NAME", length = 100, nullable = false)
@@ -26,7 +28,7 @@ public class CardFamily {
     private String cardFamilyType;
 
     @Column(name = "THREED_ENABLED", length = 1, nullable = false)
-    private Byte threeDEnable;
+    private Boolean threeDEnable;
 
     @Column(name = "MIN_CHARGE_AMOUNT", precision = 5, scale = 2, nullable = false)
     private BigDecimal minChargeAmount;
@@ -38,10 +40,6 @@ public class CardFamily {
     @JoinColumn(name = "BANK_ID", referencedColumnName = "BANK_ID")
     private Bank bank;
 
-
-//        KEY `FK_BANK_ID` (`BANK_ID`),
-//        CONSTRAINT `card_family_ibfk_1` FOREIGN KEY (`BANK_ID`) REFERENCES `bank` (`BANK_ID`)
-//        ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin5
 
     public Integer getCardFamilyId() {
         return cardFamilyId;
@@ -83,11 +81,11 @@ public class CardFamily {
         this.cardFamilyType = cardFamilyType;
     }
 
-    public Byte getThreeDEnable() {
+    public Boolean getThreeDEnable() {
         return threeDEnable;
     }
 
-    public void setThreeDEnable(Byte threeDEnable) {
+    public void setThreeDEnable(Boolean threeDEnable) {
         this.threeDEnable = threeDEnable;
     }
 

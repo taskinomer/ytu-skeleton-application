@@ -1,22 +1,24 @@
 package tr.edu.yildiz.domain.payment.bank;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "BIN_NUMBER")
-public class BinNumber {
+@Table(name = "bin_number")
+public class BinNumber implements Serializable {
 
+    private static final long serialVersionUID = -7893119613476880790L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "BIN_NUMBER_ID", length = 11)
     private Integer binNumberId;
 
-    @Column(name = "IDATE", nullable = false)
-    private Timestamp insertDate;
+    @Column(name = "IDATE", nullable = false, columnDefinition = "TIMESTAMP")
+    private LocalDateTime insertDate;
 
-    @Column(name = "UDATE")
-    private Timestamp updateDate;
+    @Column(name = "UDATE", columnDefinition = "TIMESTAMP")
+    private LocalDateTime updateDate;
 
     @Column(name = "BIN", length = 10, nullable = false, unique = true)
     private String bin;
@@ -33,19 +35,19 @@ public class BinNumber {
         this.binNumberId = binNumberId;
     }
 
-    public Timestamp getInsertDate() {
+    public LocalDateTime getInsertDate() {
         return insertDate;
     }
 
-    public void setInsertDate(Timestamp insertDate) {
+    public void setInsertDate(LocalDateTime insertDate) {
         this.insertDate = insertDate;
     }
 
-    public Timestamp getUpdateDate() {
+    public LocalDateTime getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(Timestamp updateDate) {
+    public void setUpdateDate(LocalDateTime updateDate) {
         this.updateDate = updateDate;
     }
 

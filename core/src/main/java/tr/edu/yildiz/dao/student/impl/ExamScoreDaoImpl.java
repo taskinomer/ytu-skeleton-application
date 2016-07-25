@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public abstract class ExamScoreDaoImpl extends BaseDaoImpl<ExamScore> implements ExamScoreDao {
+public class ExamScoreDaoImpl extends BaseDaoImpl<ExamScore> implements ExamScoreDao {
     @Override
     public List<ExamScore> findExamScoreWhichScoreLeastThanGivenScore(Integer score) {
 

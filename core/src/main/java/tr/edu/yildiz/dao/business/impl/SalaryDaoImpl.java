@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public abstract class SalaryDaoImpl extends BaseDaoImpl<Salary> implements SalaryDao{
+public class SalaryDaoImpl extends BaseDaoImpl<Salary> implements SalaryDao{
 
 
     @Override

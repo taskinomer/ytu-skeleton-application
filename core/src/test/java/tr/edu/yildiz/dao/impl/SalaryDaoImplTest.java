@@ -2,7 +2,7 @@ package tr.edu.yildiz.dao.impl;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import tr.edu.yildiz.dao.impl.business.SalaryDao;
+import tr.edu.yildiz.dao.business.SalaryDao;
 import tr.edu.yildiz.domain.business.Employee;
 import tr.edu.yildiz.domain.business.Salary;
 import tr.edu.yildiz.test.GenericTest;
