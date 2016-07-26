@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import tr.edu.yildiz.dao.ExamScoreDao;
+import tr.edu.yildiz.dao.student.ExamScoreDao;
 import tr.edu.yildiz.domain.student.ExamScore;
 
 import java.util.List;

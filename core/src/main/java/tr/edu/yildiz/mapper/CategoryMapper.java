@@ -1,6 +1,6 @@
 package tr.edu.yildiz.mapper;
 
-import tr.edu.yildiz.domain.Category;
+import tr.edu.yildiz.domain.product.Category;
 import tr.edu.yildiz.domain.dto.CategoryDto;
 
 public class CategoryMapper {

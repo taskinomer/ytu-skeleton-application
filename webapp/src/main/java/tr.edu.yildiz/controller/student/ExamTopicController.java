@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import tr.edu.yildiz.dao.ExamTopicDao;
+import tr.edu.yildiz.dao.student.ExamTopicDao;
 import tr.edu.yildiz.domain.student.ExamTopic;
 import tr.edu.yildiz.request.ExamTopicRequest;
 

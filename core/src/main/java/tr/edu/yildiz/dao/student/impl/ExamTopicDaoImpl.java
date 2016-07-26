@@ -1,7 +1,8 @@
-package tr.edu.yildiz.dao.impl;
+package tr.edu.yildiz.dao.student.impl;
 
 import org.springframework.stereotype.Repository;
-import tr.edu.yildiz.dao.ExamTopicDao;
+import tr.edu.yildiz.dao.impl.BaseDaoImpl;
+import tr.edu.yildiz.dao.student.ExamTopicDao;
 import tr.edu.yildiz.domain.student.ExamTopic;
 
 import javax.transaction.Transactional;

@@ -1,6 +1,7 @@
-package tr.edu.yildiz.dao;
+package tr.edu.yildiz.dao.product;
 
-import tr.edu.yildiz.domain.Member;
+import tr.edu.yildiz.dao.BaseDao;
+import tr.edu.yildiz.domain.product.Member;
 
 import java.util.List;
 

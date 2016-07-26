@@ -1,8 +1,9 @@
-package tr.edu.yildiz.dao.impl;
+package tr.edu.yildiz.dao.student.impl;
 
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
-import tr.edu.yildiz.dao.ExamScoreDao;
+import tr.edu.yildiz.dao.impl.BaseDaoImpl;
+import tr.edu.yildiz.dao.student.ExamScoreDao;
 import tr.edu.yildiz.domain.student.ExamScore;
 
 import javax.transaction.Transactional;

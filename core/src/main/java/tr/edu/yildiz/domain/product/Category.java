@@ -1,4 +1,4 @@
-package tr.edu.yildiz.domain;
+package tr.edu.yildiz.domain.product;
 
 import javax.persistence.*;
 

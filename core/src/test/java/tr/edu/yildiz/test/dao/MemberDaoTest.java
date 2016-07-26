@@ -3,8 +3,8 @@ package tr.edu.yildiz.test.dao;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import tr.edu.yildiz.dao.MemberDao;
-import tr.edu.yildiz.domain.Member;
+import tr.edu.yildiz.dao.product.MemberDao;
+import tr.edu.yildiz.domain.product.Member;
 import tr.edu.yildiz.test.GenericTest;
 
 import java.util.List;

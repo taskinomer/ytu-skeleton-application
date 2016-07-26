@@ -1,9 +1,10 @@
-package tr.edu.yildiz.dao.impl;
+package tr.edu.yildiz.dao.product.impl;
 
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
-import tr.edu.yildiz.dao.MemberDao;
-import tr.edu.yildiz.domain.Member;
+import tr.edu.yildiz.dao.impl.BaseDaoImpl;
+import tr.edu.yildiz.dao.product.MemberDao;
+import tr.edu.yildiz.domain.product.Member;
 
 import javax.transaction.Transactional;
 import java.util.List;
