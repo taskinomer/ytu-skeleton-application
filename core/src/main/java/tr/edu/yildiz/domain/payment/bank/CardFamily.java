@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "card_family")
@@ -16,10 +17,10 @@ public class CardFamily implements Serializable {
     private Integer cardFamilyId;
 
     @Column(name = "IDATE", nullable = false, columnDefinition = "TIMESTAMP")
-    private LocalDateTime insertDate;
+    private Date insertDate;
 
     @Column(name = "UDATE", columnDefinition = "TIMESTAMP")
-    private LocalDateTime updateDate;
+    private Date updateDate;
 
     @Column(name = "NAME", length = 100, nullable = false)
     private String name;
@@ -49,19 +50,19 @@ public class CardFamily implements Serializable {
         this.cardFamilyId = cardFamilyId;
     }
 
-    public LocalDateTime getInsertDate() {
+    public Date getInsertDate() {
         return insertDate;
     }
 
-    public void setInsertDate(LocalDateTime insertDate) {
+    public void setInsertDate(Date insertDate) {
         this.insertDate = insertDate;
     }
 
-    public LocalDateTime getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(LocalDateTime updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 

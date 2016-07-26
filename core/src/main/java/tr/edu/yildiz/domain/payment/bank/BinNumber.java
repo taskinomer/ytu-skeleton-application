@@ -3,6 +3,7 @@ package tr.edu.yildiz.domain.payment.bank;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "bin_number")
@@ -15,10 +16,10 @@ public class BinNumber implements Serializable {
     private Integer binNumberId;
 
     @Column(name = "IDATE", nullable = false, columnDefinition = "TIMESTAMP")
-    private LocalDateTime insertDate;
+    private Date insertDate;
 
     @Column(name = "UDATE", columnDefinition = "TIMESTAMP")
-    private LocalDateTime updateDate;
+    private Date updateDate;
 
     @Column(name = "BIN", length = 10, nullable = false, unique = true)
     private String bin;
@@ -35,19 +36,19 @@ public class BinNumber implements Serializable {
         this.binNumberId = binNumberId;
     }
 
-    public LocalDateTime getInsertDate() {
+    public Date getInsertDate() {
         return insertDate;
     }
 
-    public void setInsertDate(LocalDateTime insertDate) {
+    public void setInsertDate(Date insertDate) {
         this.insertDate = insertDate;
     }
 
-    public LocalDateTime getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(LocalDateTime updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 

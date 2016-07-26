@@ -25,8 +25,9 @@ public class BankController {
         return bankService.findAll();
     }
 
-    @RequestMapping("/bank/{id}/cardFamily")
-    public List<CardFamily> getCardFamiliesByBankId(@PathVariable Integer id) {
-        return bankService.getCardFamiliesByBankId(id);
+    @RequestMapping("/{bankId}/cardFamily")
+    @ResponseBody
+    public List<CardFamily> getCardFamiliesByBankId(@PathVariable Integer bankId) {
+        return bankService.getCardFamiliesByBankId(bankId);
     }
 }

@@ -9,5 +9,5 @@ public interface BankService {
 
     List<Bank> findAll();
 
-    List<CardFamily> getCardFamiliesByBankId(Integer id);
+    List<CardFamily> getCardFamiliesByBankId(Integer bankId);
 }

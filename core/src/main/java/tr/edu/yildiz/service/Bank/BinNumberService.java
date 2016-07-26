@@ -1,7 +1,13 @@
 package tr.edu.yildiz.service.Bank;
 
-/**
- * Created by abozyel on 26/07/16.
- */
+import tr.edu.yildiz.domain.payment.bank.BinNumber;
+
+import java.util.List;
+
 public interface BinNumberService {
+
+    List<BinNumber> binNumbers();
+
 }
+
+

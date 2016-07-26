@@ -1,10 +1,13 @@
 package tr.edu.yildiz.domain.payment.bank;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -28,6 +31,9 @@ public class Bank implements Serializable {
     @Column(name = "NAME", length = 50, unique = true, nullable = false)
     private String name;
 
+    @OneToMany(mappedBy = "bank",fetch = FetchType.EAGER)
+    private List<CardFamily> cardFamilies;
+
     public Integer getBankId() {
         return bankId;
     }
@@ -36,6 +42,13 @@ public class Bank implements Serializable {
         this.bankId = bankID;
     }
 
+    public List<CardFamily> getCardFamilies() {
+        return cardFamilies;
+    }
+
+    public void setCardFamilies(List<CardFamily> cardFamilies) {
+        this.cardFamilies = cardFamilies;
+    }
 
     public Date getInsertDate() {
         return insertDate;
