@@ -67,4 +67,6 @@ public class BinNumber implements Serializable {
     public void setCardFamily(CardFamily cardFamily) {
         this.cardFamily = cardFamily;
     }
+
+
 }

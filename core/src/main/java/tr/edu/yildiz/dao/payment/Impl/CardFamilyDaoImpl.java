@@ -10,18 +10,23 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class CardFamilyDaoImpl extends BaseDaoImpl<CardFamily> implements CardFamilyDao{
- 
-    public void save(CardFamily cardFamily){
+public class CardFamilyDaoImpl extends BaseDaoImpl<CardFamily> implements CardFamilyDao {
+
+    public void save(CardFamily cardFamily) {
         sessionFactory.getCurrentSession().save(cardFamily);
     }
 
-    public List<CardFamily> cardFamilies(Integer bankId){
+    public List<CardFamily> cardFamilies(Integer bankId) {
         return getSessionFactory().getCurrentSession().createQuery("select c from CardFamily c WHERE c.bank.bankId = :bankId")
                 .setParameter("bankId", bankId).list();
     }
 
     public List<CardFamily> allCardFamilies() {
         return getSessionFactory().getCurrentSession().createQuery("SELECT cf from cardFamily cf").list();
+    }
+
+    @Override
+    public List<CardFamily> findByCardFamilyId(Integer cardFamilyId) {
+        return getSessionFactory().getCurrentSession().createQuery("select c from CardFamily c where c.cardFamilyId = :id ").setParameter("id", cardFamilyId).list();
     }
 }

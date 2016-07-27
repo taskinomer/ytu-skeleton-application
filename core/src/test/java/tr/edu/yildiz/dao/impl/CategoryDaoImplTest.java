@@ -5,14 +5,13 @@ import org.junit.*;
 public class CategoryDaoImplTest {
 
     @Before
-    public static void setUp() throws Exception {
+    public void setUp() throws Exception {
         System.out.println("before");
     }
 
     @Test
     public void test() {
-        System.out.println("test");
-        Assert.assertTrue(true);
+        returnTest();
     }
 
     @Test
@@ -24,5 +23,15 @@ public class CategoryDaoImplTest {
     @After
     public void tearDown() throws Exception {
         System.out.println("after");
+    }
+
+    private void returnTest() {
+        System.out.println("method was called");
+
+        if (true) {
+            return;
+        }
+
+        System.out.println("method has already called");
     }
 }

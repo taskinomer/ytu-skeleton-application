@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tr.edu.yildiz.dao.impl.BaseDaoImpl;
 import tr.edu.yildiz.dao.payment.bank.BinNumberDao;
 import tr.edu.yildiz.domain.payment.bank.BinNumber;
+import tr.edu.yildiz.domain.payment.bank.CardFamily;
 
 import java.util.List;
 
@@ -12,11 +13,21 @@ import java.util.List;
 @Transactional
 public class BinNumberDaoImpl extends BaseDaoImpl<BinNumber> implements BinNumberDao {
 
-    public List<BinNumber> binNumbers(){
+    public List<BinNumber> binNumbers() {
         return getSessionFactory().getCurrentSession().createQuery("SELECT e FROM BinNumber e").list();
     }
 
-    public void save(BinNumber binNumber){
+    @Override
+    public List<BinNumber> findBinNumberByCardFamilyAndBinNumber(CardFamily cardFamily, String bin) {
+        return getSessionFactory().getCurrentSession().createQuery("select b from BinNumber b where b.cardFamily = :cardFamily and b.bin = :bin")
+                .setParameter("cardFamily", cardFamily)
+                .setParameter("bin", bin)
+                .list();
+    }
+
+    public void save(BinNumber binNumber) {
         sessionFactory.getCurrentSession().save(binNumber);
     }
+
+
 }
