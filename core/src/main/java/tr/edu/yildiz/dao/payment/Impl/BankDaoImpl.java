@@ -31,4 +31,11 @@ public class BankDaoImpl extends BaseDaoImpl<Bank> implements BankDao {
                 "where b.bank.cardFamily.binNumberId = :X")
                 .setParameter("X", X).list();
     }
+
+    @Override
+    public List<CardFamily> getCardFamiliesByBankId(Integer bankId){
+        return getSessionFactory().getCurrentSession().createQuery("select c from CardFamily c WHERE c.bank.bankId = :bankId")
+                .setParameter("bankId", bankId).list();
+    }
+
 }
