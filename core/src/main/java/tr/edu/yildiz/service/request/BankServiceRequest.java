@@ -1,6 +1,7 @@
 package tr.edu.yildiz.service.request;
 
 public class BankServiceRequest {
+
     private String name;
 
     public String getName() {

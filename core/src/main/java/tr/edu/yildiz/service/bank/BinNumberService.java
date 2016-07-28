@@ -1,4 +1,4 @@
-package tr.edu.yildiz.service.Bank;
+package tr.edu.yildiz.service.bank;
 
 import tr.edu.yildiz.domain.payment.bank.BinNumber;
 import tr.edu.yildiz.service.request.BinNumberSaveRequest;
