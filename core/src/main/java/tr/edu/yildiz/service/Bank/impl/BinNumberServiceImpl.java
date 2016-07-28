@@ -1,4 +1,4 @@
-package tr.edu.yildiz.service.Bank;
+package tr.edu.yildiz.service.bank.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +8,7 @@ import tr.edu.yildiz.dao.payment.bank.BinNumberDao;
 import tr.edu.yildiz.dao.payment.bank.CardFamilyDao;
 import tr.edu.yildiz.domain.payment.bank.BinNumber;
 import tr.edu.yildiz.domain.payment.bank.CardFamily;
+import tr.edu.yildiz.service.bank.BinNumberService;
 import tr.edu.yildiz.service.request.BinNumberSaveRequest;
 import tr.edu.yildiz.service.response.BinNumberSaveResponse;
 

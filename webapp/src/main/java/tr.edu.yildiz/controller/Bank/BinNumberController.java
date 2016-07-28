@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import tr.edu.yildiz.domain.payment.bank.BinNumber;
 import tr.edu.yildiz.service.request.BinNumberSaveRequest;
-import tr.edu.yildiz.service.Bank.BinNumberService;
+import tr.edu.yildiz.service.bank.BinNumberService;
 import tr.edu.yildiz.service.response.BinNumberSaveResponse;
 
 import java.util.List;
