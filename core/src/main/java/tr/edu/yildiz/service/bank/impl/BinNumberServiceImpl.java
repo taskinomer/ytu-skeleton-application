@@ -10,7 +10,7 @@ import tr.edu.yildiz.domain.payment.bank.BinNumber;
 import tr.edu.yildiz.domain.payment.bank.CardFamily;
 import tr.edu.yildiz.service.bank.BinNumberService;
 import tr.edu.yildiz.service.request.BinNumberSaveRequest;
-import tr.edu.yildiz.service.response.BinNumberSaveResponse;
+import tr.edu.yildiz.service.response.BinNumberResponse;
 
 import java.util.Date;
 import java.util.List;
@@ -31,8 +31,8 @@ public class BinNumberServiceImpl implements BinNumberService {
     }
 
     @Override
-    public BinNumberSaveResponse save(BinNumberSaveRequest binNumberSaveRequest) {
-        BinNumberSaveResponse response = new BinNumberSaveResponse();
+    public BinNumberResponse save(BinNumberSaveRequest binNumberSaveRequest) {
+        BinNumberResponse response = new BinNumberResponse();
 
         try {
             processSave(binNumberSaveRequest, response);
@@ -44,13 +44,28 @@ public class BinNumberServiceImpl implements BinNumberService {
         return response;
     }
 
-    private void processSave(BinNumberSaveRequest binNumberSaveRequest, BinNumberSaveResponse response) throws Exception {
+    @Override
+    public void deleteBinNumber(String binNumber) {
+        BinNumberResponse response = new BinNumberResponse();
+
+        try {
+
+            binNumberDao.delete(binNumber);
+
+
+        } catch (Exception e) {
+            response.setSucceed(false);
+            response.setMessage(e.getMessage());
+        }
+    }
+
+    private void processSave(BinNumberSaveRequest binNumberSaveRequest, BinNumberResponse response) throws Exception {
         validateRequestParameters(binNumberSaveRequest);
 
         validateCardFamilyAndSaveBin(binNumberSaveRequest, response);
     }
 
-    private void validateCardFamilyAndSaveBin(BinNumberSaveRequest binNumberSaveRequest, BinNumberSaveResponse response) throws Exception {
+    private void validateCardFamilyAndSaveBin(BinNumberSaveRequest binNumberSaveRequest, BinNumberResponse response) throws Exception {
         List<CardFamily> cardFamilies = cardFamilyDao.findByCardFamilyId(binNumberSaveRequest.getCardFamilyId());
         if (cardFamilies.isEmpty()) {
             throw new Exception("card family does not exists");

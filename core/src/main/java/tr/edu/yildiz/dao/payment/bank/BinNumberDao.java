@@ -14,4 +14,6 @@ public interface BinNumberDao extends BaseDao<BinNumber> {
     List<BinNumber> binNumbers();
 
     List<BinNumber> findBinNumberByCardFamilyAndBinNumber(CardFamily cardFamily, String bin);
+
+    void delete (String binNumber);
 }

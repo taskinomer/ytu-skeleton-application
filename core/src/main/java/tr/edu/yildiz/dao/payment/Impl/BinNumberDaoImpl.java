@@ -13,6 +13,7 @@ import java.util.List;
 @Transactional
 public class BinNumberDaoImpl extends BaseDaoImpl<BinNumber> implements BinNumberDao {
 
+    @Override
     public List<BinNumber> binNumbers() {
         return getSessionFactory().getCurrentSession().createQuery("SELECT e FROM BinNumber e").list();
     }
@@ -25,9 +26,15 @@ public class BinNumberDaoImpl extends BaseDaoImpl<BinNumber> implements BinNumbe
                 .list();
     }
 
+    @Override
     public void save(BinNumber binNumber) {
         sessionFactory.getCurrentSession().save(binNumber);
     }
 
+    @Override
+    public void delete(String binNumber) {
+        getSessionFactory().getCurrentSession().createQuery("delete FROM BinNumber where binNumber= :binNumber")
+                .setParameter("binNumber", binNumber);
+    }
 
 }

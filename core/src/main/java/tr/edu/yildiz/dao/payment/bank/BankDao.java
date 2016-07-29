@@ -19,4 +19,6 @@ public interface BankDao extends BaseDao<Bank> {
 
     List<CardFamily> getCardFamiliesByBankId(Integer bankId);
 
+    List<Bank> findByBankId(Integer bankId);
+
 }

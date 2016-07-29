@@ -1,6 +1,6 @@
 package tr.edu.yildiz.service.response;
 
-public class BinNumberSaveResponse {
+public class BinNumberResponse {
 
     private boolean succeed = false;
     private String message;
