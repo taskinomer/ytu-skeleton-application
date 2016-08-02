@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import tr.edu.yildiz.domain.dto.bank.BankDto;
 import org.springframework.web.bind.annotation.*;
+import tr.edu.yildiz.domain.payment.bank.Bank;
 import tr.edu.yildiz.domain.payment.bank.CardFamily;
 import tr.edu.yildiz.service.bank.BankService;
 import tr.edu.yildiz.service.request.BankServiceRequest;
@@ -39,4 +40,9 @@ public class BankController {
     public void bankSave(BankServiceRequest bankServiceRequest) {
         bankService.save(bankServiceRequest);
     }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public List<Bank> bankUpdate(@PathVariable Integer bankId, String newName) {
+        return bankService.update(bankId,newName);}
 }

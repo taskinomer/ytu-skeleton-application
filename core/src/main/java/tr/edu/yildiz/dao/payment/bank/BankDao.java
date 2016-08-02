@@ -21,4 +21,5 @@ public interface BankDao extends BaseDao<Bank> {
 
     List<Bank> findByBankId(Integer bankId);
 
+    List<Bank> updateBankByBankId(Integer bankId, String newName);
 }

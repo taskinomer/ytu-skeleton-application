@@ -70,10 +70,6 @@ public class Bank implements Serializable {
         return name;
     }
 
-    public String getName(String garanti) {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
     }

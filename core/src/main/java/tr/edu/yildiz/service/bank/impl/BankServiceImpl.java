@@ -10,11 +10,7 @@ import tr.edu.yildiz.domain.payment.bank.CardFamily;
 import tr.edu.yildiz.mapper.bank.BankToBankDto;
 import tr.edu.yildiz.service.bank.BankService;
 import tr.edu.yildiz.service.request.BankServiceRequest;
-import tr.edu.yildiz.service.request.BankServiceRequest;
-import tr.edu.yildiz.service.response.BankServiceResponse;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -43,6 +39,13 @@ public class BankServiceImpl implements BankService {
         bank.setName(bankServiceRequest.getName());
 
         bankDao.save(bank);
+    }
+
+    @Override
+    public List<Bank> update(Integer bankId, String newName) {
+
+        return bankDao.updateBankByBankId(bankId,newName);
+
     }
 
 }

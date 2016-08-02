@@ -41,7 +41,13 @@ public class BinNumberController {
     @ResponseBody
     public BinNumberResponse deleteBinNumber(@RequestParam String binNumber) {
         BinNumberResponse binNumberResponse = new BinNumberResponse();
-        binNumberService.deleteBinNumber(binNumber);
+                try {
+                    binNumberService.deleteBinNumber(binNumber);
+                }catch(Exception e){
+                    binNumberResponse.setSucceed(false);
+                    binNumberResponse.setMessage(e.getMessage());
+                }
+
         return binNumberResponse;
     }
 }

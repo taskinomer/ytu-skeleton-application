@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import tr.edu.yildiz.dao.impl.BaseDaoImpl;
 import tr.edu.yildiz.dao.payment.bank.CardFamilyDao;
+import tr.edu.yildiz.domain.payment.bank.Bank;
 import tr.edu.yildiz.domain.payment.bank.CardFamily;
 
 import java.util.List;

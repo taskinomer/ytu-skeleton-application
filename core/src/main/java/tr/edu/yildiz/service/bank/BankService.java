@@ -1,6 +1,7 @@
 package tr.edu.yildiz.service.bank;
 
 import tr.edu.yildiz.domain.dto.bank.BankDto;
+import tr.edu.yildiz.domain.payment.bank.Bank;
 import tr.edu.yildiz.domain.payment.bank.CardFamily;
 import tr.edu.yildiz.service.request.BankServiceRequest;
 
@@ -14,4 +15,5 @@ public interface BankService {
 
     void save(BankServiceRequest bankServiceRequest);
 
+    List<Bank> update(Integer bankId, String newName);
 }
