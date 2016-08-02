@@ -14,7 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class BankDaoImplTest extends GenericTest {
+public class BankDaoImplIntgTest extends GenericTest {
 
     @Autowired
     private BankDao bankDao;
@@ -31,11 +31,20 @@ public class BankDaoImplTest extends GenericTest {
         List<Bank> bankByBankId = bankDao.updateBankByBankId(bankId,newName);
 
         //metot cagir
+
+
         //test assertion
             //newName i gecerken degistirdi mi
             //newName bos mu
+
+        Assert.assertNotNull(bankByBankId);
+        Assert.assertTrue(bankByBankId.size() == 1);
+        Assert.assertEquals(bankByBankId.get(0).getName(), bank.getName());
+
+
             //updateDate bos mu
-            //
+
+        Assert.assertNotNull(bank.getUpdateDate());
 
     }
 }
