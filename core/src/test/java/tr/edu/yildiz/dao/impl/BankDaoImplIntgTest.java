@@ -3,6 +3,7 @@ package tr.edu.yildiz.dao.impl;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import tr.edu.yildiz.dao.payment.Impl.BankDaoImpl;
 import tr.edu.yildiz.dao.payment.bank.BankDao;
 import tr.edu.yildiz.domain.payment.bank.Bank;
 import tr.edu.yildiz.test.GenericTest;
@@ -19,21 +20,22 @@ public class BankDaoImplTest extends GenericTest {
     private BankDao bankDao;
 
     @Test
-    public void banks(Integer X) throws Exception {
+    public void updateBankByBankId(Integer bankId,String newName) throws Exception{
 
-        // data olusturma
         Bank bank = new Bank();
-//        bank.setInsertDate(LocalDateTime.now()
-//                .minusDays(1)
-//                .plusMinutes(4));
-        bank.setInsertDate(new Date());
-        bank.getName("garanti");
+        bank.setName("İşBankası");
 
-        // testini yazdığın methodu çağır
-        List<Bank> banks = bankDao.banks(X);
+        bankDao.saveOrUpdate(bank);
+        //data olustur
 
-        // assertion
-//        Assert;
+        List<Bank> bankByBankId = bankDao.updateBankByBankId(bankId,newName);
+
+        //metot cagir
+        //test assertion
+            //newName i gecerken degistirdi mi
+            //newName bos mu
+            //updateDate bos mu
+            //
+
     }
-
 }
