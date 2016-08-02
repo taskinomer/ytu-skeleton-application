@@ -41,8 +41,8 @@ public class BankController {
         bankService.save(bankServiceRequest);
     }
 
-    @RequestMapping("/{bankId}/{newName}")
+    @RequestMapping(value = "/{bankId}", method = RequestMethod.PUT)
     @ResponseBody
-    public List<Bank> bankUpdate(@PathVariable Integer bankId, String newName) {
-        return bankService.update(bankId,newName);}
+    public List<Bank> updateBankNameByBankId(@PathVariable Integer bankId, @RequestParam String newName) {
+        return bankService.updateBankNameByBankId(bankId,newName);}
 }

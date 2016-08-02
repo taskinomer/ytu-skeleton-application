@@ -42,7 +42,7 @@ public class BankServiceImpl implements BankService {
     }
 
     @Override
-    public List<Bank> update(Integer bankId, String newName) {
+    public List<Bank> updateBankNameByBankId(Integer bankId, String newName) {
 
         return bankDao.updateBankByBankId(bankId,newName);
 

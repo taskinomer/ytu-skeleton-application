@@ -20,15 +20,15 @@ public class BankDaoImplIntgTest extends GenericTest {
     private BankDao bankDao;
 
     @Test
-    public void updateBankByBankId(Integer bankId,String newName) throws Exception{
+    public void updateBankByBankId() throws Exception{
 
         Bank bank = new Bank();
         bank.setName("İşBankası");
 
-        bankDao.saveOrUpdate(bank);
+        bankDao.save(bank);
         //data olustur
 
-        List<Bank> bankByBankId = bankDao.updateBankByBankId(bankId,newName);
+        List<Bank> bankByBankId = bankDao.updateBankByBankId(bank.getBankId(),bank.getName());
 
         //metot cagir
 

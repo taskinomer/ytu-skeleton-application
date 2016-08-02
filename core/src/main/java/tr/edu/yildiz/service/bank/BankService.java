@@ -15,5 +15,5 @@ public interface BankService {
 
     void save(BankServiceRequest bankServiceRequest);
 
-    List<Bank> update(Integer bankId, String newName);
+    List<Bank> updateBankNameByBankId(Integer bankId, String newName);
 }
